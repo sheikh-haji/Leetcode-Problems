@@ -1,0 +1,37 @@
+class Solution {
+    bool vowel(char a,char b){
+        if((a=='a' or a=='A' or a=='e' or a=='E' or  a=='i' or  a=='I' or  a=='O' or   a=='o'  or  a=='u'  or       a=='U') and (b=='a' or  b=='A' or b=='e'   or    b=='E' or   b=='i' or    b=='I' or  b=='O' or  b=='o'  or b=='u'  or  b=='U')){
+            return true;
+        }
+        return false;
+    }
+    bool vowel1(char a){
+        if((a=='a' or  a=='A'  or  a=='e'  or  a=='E'  or  a=='i'  or    a=='I' or    a=='O' or     a=='o' or    a=='u' or    a=='U') ){
+            return true;
+        }
+        return false;
+    }
+public:
+    string reverseVowels(string S) {
+        int i=0;
+        int j=S.length()-1;
+        while(i<j){
+            if(vowel(S[i],S[j])){
+                swap(S[i++],S[j--]);
+            }
+            else{
+               if(vowel1(S[i])){
+                   j--;
+               } 
+               else if(vowel1(S[j])){
+                   i++;
+               }
+                else if(vowel1(S[i])==false and vowel1(S[j])==false){
+                    i++;j--;
+                }
+              
+            }
+        }
+        return S;
+    }
+};
